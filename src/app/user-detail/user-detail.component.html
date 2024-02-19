@@ -1,0 +1,61 @@
+<ng-container *ngIf="!isLoading; else loaderTemplate">
+  <div class="user-detail">
+    <button routerLink="" mat-raised-button color="primary">
+      Back to Home
+    </button>
+    <mat-card>
+      <mat-card-header>
+        <mat-icon mat-card-avatar>account_circle</mat-icon>
+        <!-- <div mat-card-avatar>
+            <img src="https://icons8.com/icon/65342/customer" alt="User Profile">
+            <mat-icon fontIcon="account_circle" aria-hidden="false" aria-label="User Profile"></mat-icon>
+        </div> -->
+        <mat-card-title>{{ userDetail.name }}</mat-card-title>
+        <mat-card-subtitle>{{ "@" + userDetail.username }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="user-detail__content">
+          <div class="item">
+            <div class="title">Email</div>
+            <div class="desc text-link ">
+              <a href="mailto:{{ userDetail.email }}">{{ userDetail.email }}</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="title">Phone</div>
+            <div class="desc" email>{{ userDetail.phone }}</div>
+          </div>
+          <div class="item" *ngIf="userDetail.address">
+            <div class="title">Address</div>
+            <div class="desc">
+              {{ userDetail.address.street }}, {{ userDetail.address.suite }},
+              {{ userDetail.address.city }}, {{ userDetail.address.zipcode }}
+            </div>
+          </div>
+          <div class="item" *ngIf="userDetail.company">
+            <div class="title">Company</div>
+            <div class="desc">
+              <div>{{ userDetail.company.name }}</div>
+              <i>"{{ userDetail.company.catchPhrase }}"</i>
+              <div>Mission : {{ userDetail.company.bs }}.</div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="title">Website</div>
+            <div class="desc text-link ">
+              <a href="http://{{ userDetail.website }}" target="_blank">{{
+                userDetail.website
+              }}</a>
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>
+
+<ng-template #loaderTemplate>
+  <div class="full-screen-loader">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

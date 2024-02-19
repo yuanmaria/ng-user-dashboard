@@ -1,0 +1,47 @@
+.user-detail {
+    button {
+        margin-bottom: 1rem;
+    }
+    mat-icon.mat-mdc-card-avatar{
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        margin: 0;
+      }
+      .mat-mdc-card-header {
+        padding-bottom: 1rem;
+      }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        .item {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+            border-top: solid 1px #333;
+            padding-top: 0.5rem;
+        }
+        .title {
+            width: 20%;
+            font-weight: 600;
+            min-width: 60px;
+        }
+        .desc {
+            width: 80%;
+        }
+        i {
+            font-size: 0.75rem;
+        }
+    }
+}
+
+@media screen and (max-width: 600px){
+    .user-detail {
+        margin: 1rem;
+        button {
+            margin-bottom: 1rem;
+        }
+    }
+}
